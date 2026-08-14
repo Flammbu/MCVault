@@ -1,349 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>MCVault</title>
 
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
 
-    <div id="app">
+<div id="editionScreen" class="edition-screen">
 
-        <!-- Edition Selection -->
+    <div class="glow glow-one"></div>
+    <div class="glow glow-two"></div>
 
-        <section id="editionScreen" class="edition-screen">
+    <div class="welcome">
 
-            <div class="background-glow glow-one"></div>
-            <div class="background-glow glow-two"></div>
+        <div class="logo">
+            MC<span>Vault</span>
+        </div>
 
-            <div class="edition-content">
+        <div class="eyebrow">
+            THE MINECRAFT CONTENT HUB
+        </div>
 
-                <div class="logo">
-                    MC<span>Vault</span>
-                </div>
+        <h1>
+            Choose your
+            <span>Edition</span>
+        </h1>
 
-                <div class="eyebrow">
-                    THE MINECRAFT CONTENT HUB
-                </div>
+        <p>
+            Discover mods, modpacks, resource packs,
+            shaders, maps and more.
+        </p>
 
-                <h1>
-                    Choose your
-                    <span>Edition</span>
-                </h1>
+        <div class="edition-grid">
+
+            <button
+                class="edition-card"
+                onclick="selectEdition('java')"
+            >
+
+                <div class="edition-icon">⛏</div>
+
+                <h2>Java Edition</h2>
 
                 <p>
-                    Discover mods, modpacks, shaders,
-                    resource packs, maps and more.
+                    Mods · Modpacks · Shaders<br>
+                    Resource Packs · Maps
                 </p>
 
-                <div class="edition-cards">
+                <strong>ENTER →</strong>
 
-                    <button
-                        class="edition-card"
-                        onclick="selectEdition('java')"
-                    >
+            </button>
 
-                        <div class="edition-icon">
-                            ⛏
-                        </div>
 
-                        <div class="edition-name">
-                            Java Edition
-                        </div>
+            <button
+                class="edition-card"
+                onclick="selectEdition('bedrock')"
+            >
 
-                        <div class="edition-description">
-                            Mods • Modpacks • Shaders
-                            • Resource Packs • Maps
-                        </div>
+                <div class="edition-icon">◆</div>
 
-                        <div class="enter">
-                            ENTER →
-                        </div>
+                <h2>Bedrock Edition</h2>
 
-                    </button>
+                <p>
+                    Add-ons · Worlds · Packs<br>
+                    Skins · Maps
+                </p>
 
+                <strong>ENTER →</strong>
 
-                    <button
-                        class="edition-card"
-                        onclick="selectEdition('bedrock')"
-                    >
+            </button>
 
-                        <div class="edition-icon">
-                            ◈
-                        </div>
-
-                        <div class="edition-name">
-                            Bedrock Edition
-                        </div>
-
-                        <div class="edition-description">
-                            Add-ons • Worlds • Resource Packs
-                            • Skins • Maps
-                        </div>
-
-                        <div class="enter">
-                            ENTER →
-                        </div>
-
-                    </button>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- Main Website -->
-
-        <section id="mainScreen" class="main-screen hidden">
-
-            <header>
-
-                <div class="logo">
-                    MC<span>Vault</span>
-                </div>
-
-                <nav>
-
-                    <button onclick="changeCategory('all')">
-                        Home
-                    </button>
-
-                    <button onclick="changeCategory('mod')">
-                        Mods
-                    </button>
-
-                    <button onclick="changeCategory('modpack')">
-                        Modpacks
-                    </button>
-
-                    <button onclick="changeCategory('resourcepack')">
-                        Resource Packs
-                    </button>
-
-                    <button onclick="changeCategory('shader')">
-                        Shaders
-                    </button>
-
-                </nav>
-
-                <button
-                    class="change-edition"
-                    onclick="changeEdition()"
-                >
-                    Change Edition
-                </button>
-
-            </header>
-
-
-            <main>
-
-                <section class="hero">
-
-                    <div class="hero-text">
-
-                        <div
-                            id="editionLabel"
-                            class="eyebrow"
-                        >
-                            MINECRAFT JAVA EDITION
-                        </div>
-
-                        <h2>
-                            Everything Minecraft.
-                            <span>One place.</span>
-                        </h2>
-
-                        <p>
-                            Find mods, modpacks, shaders,
-                            resource packs and more.
-                        </p>
-
-                        <div class="search">
-
-                            <input
-                                id="searchInput"
-                                type="text"
-                                placeholder="Search Minecraft content..."
-                            >
-
-                            <button onclick="searchProjects()">
-                                SEARCH
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </section>
-
-
-                <section class="filters">
-
-                    <select id="version">
-
-                        <option value="">
-                            All Versions
-                        </option>
-
-                        <option value="1.21.11">
-                            1.21.11
-                        </option>
-
-                        <option value="1.21.10">
-                            1.21.10
-                        </option>
-
-                        <option value="1.21.8">
-                            1.21.8
-                        </option>
-
-                        <option value="1.21.5">
-                            1.21.5
-                        </option>
-
-                        <option value="1.20.1">
-                            1.20.1
-                        </option>
-
-                    </select>
-
-
-                    <select id="loader">
-
-                        <option value="">
-                            All Loaders
-                        </option>
-
-                        <option value="fabric">
-                            Fabric
-                        </option>
-
-                        <option value="forge">
-                            Forge
-                        </option>
-
-                        <option value="neoforge">
-                            NeoForge
-                        </option>
-
-                        <option value="quilt">
-                            Quilt
-                        </option>
-
-                    </select>
-
-
-                    <select id="side">
-
-                        <option value="">
-                            Client + Server
-                        </option>
-
-                        <option value="client">
-                            Client
-                        </option>
-
-                        <option value="server">
-                            Server
-                        </option>
-
-                    </select>
-
-
-                    <select id="category">
-
-                        <option value="">
-                            All Categories
-                        </option>
-
-                        <option value="pvp">
-                            PvP
-                        </option>
-
-                        <option value="combat">
-                            Combat
-                        </option>
-
-                        <option value="optimization">
-                            Performance
-                        </option>
-
-                        <option value="utility">
-                            Utility
-                        </option>
-
-                        <option value="visual">
-                            Visual
-                        </option>
-
-                    </select>
-
-                </section>
-
-
-                <section class="content">
-
-                    <div class="content-title">
-
-                        <div>
-
-                            <div class="eyebrow">
-                                DISCOVER
-                            </div>
-
-                            <h3>
-                                Minecraft Projects
-                            </h3>
-
-                        </div>
-
-                        <div id="resultCount">
-                            0 results
-                        </div>
-
-                    </div>
-
-
-                    <div
-                        id="loading"
-                        class="loading hidden"
-                    >
-
-                        <div class="spinner"></div>
-
-                        Loading projects...
-
-                    </div>
-
-
-                    <div
-                        id="results"
-                        class="results"
-                    ></div>
-
-                </section>
-
-            </main>
-
-        </section>
+        </div>
 
     </div>
 
+</div>
 
-    <script src="/app.js"></script>
+
+<div id="mainScreen" class="main hidden">
+
+    <header>
+
+        <div class="logo">
+            MC<span>Vault</span>
+        </div>
+
+        <nav>
+
+            <button onclick="setType('mod')">
+                Mods
+            </button>
+
+            <button onclick="setType('modpack')">
+                Modpacks
+            </button>
+
+            <button onclick="setType('resourcepack')">
+                Resource Packs
+            </button>
+
+            <button onclick="setType('shader')">
+                Shaders
+            </button>
+
+        </nav>
+
+        <button
+            class="change-button"
+            onclick="changeEdition()"
+        >
+            Change Edition
+        </button>
+
+    </header>
+
+
+    <section class="hero">
+
+        <div class="eyebrow" id="editionLabel">
+            JAVA EDITION
+        </div>
+
+        <h1>
+            Everything Minecraft.
+            <span>One place.</span>
+        </h1>
+
+        <p>
+            Find Minecraft content from trusted platforms.
+        </p>
+
+        <div class="search">
+
+            <input
+                id="searchInput"
+                type="text"
+                placeholder="Search Minecraft content..."
+            >
+
+            <button onclick="search()">
+                SEARCH
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <section class="filters">
+
+        <select id="version">
+            <option value="">All Versions</option>
+            <option>1.21.11</option>
+            <option>1.21.10</option>
+            <option>1.21.8</option>
+            <option>1.21.5</option>
+            <option>1.20.1</option>
+        </select>
+
+
+        <select id="loader">
+            <option value="">All Loaders</option>
+            <option>Fabric</option>
+            <option>Forge</option>
+            <option>NeoForge</option>
+            <option>Quilt</option>
+        </select>
+
+
+        <select id="side">
+            <option value="">Client + Server</option>
+            <option>Client</option>
+            <option>Server</option>
+        </select>
+
+
+        <select id="category">
+            <option value="">All Categories</option>
+            <option>PvP</option>
+            <option>Combat</option>
+            <option>Performance</option>
+            <option>Utility</option>
+            <option>Visual</option>
+        </select>
+
+    </section>
+
+
+    <main class="content">
+
+        <div class="content-header">
+
+            <div>
+
+                <div class="eyebrow">
+                    DISCOVER
+                </div>
+
+                <h2>
+                    Minecraft Projects
+                </h2>
+
+            </div>
+
+            <span id="count">
+                0 results
+            </span>
+
+        </div>
+
+
+        <div id="loading" class="loading hidden">
+            Loading...
+        </div>
+
+
+        <div id="results" class="results"></div>
+
+    </main>
+
+</div>
+
+
+<script src="./app.js"></script>
 
 </body>
-
 </html>
